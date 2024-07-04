@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -16,8 +15,8 @@ export const Home = () => {
 			</div>
 			<div className="row mt-5">
 				<div className="col-12 text-center">
-					<button type="button" onClick={() => navigate("/login")} class="btn btn-primary btn-lg me-5">Inicia sesión</button>
-					<button type="button" onClick={() => navigate("/registro")} class="btn btn-success btn-lg">Regístrate</button>
+					<button type="button" onClick={() => navigate("/login")} className="btn btn-primary btn-lg me-5">Inicia sesión</button>
+					<button type="button" onClick={() => navigate("/registro")} className="btn btn-success btn-lg">Regístrate</button>
 				</div>
 			</div>
 		</div>

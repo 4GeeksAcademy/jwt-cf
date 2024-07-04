@@ -13,7 +13,6 @@ export const Login = () => {
         try {
             const response = await actions.login(email, password);
             if (response && response.token) {
-                // Redirigir a la página de inicio, por ejemplo
                 window.location.href = "/vista-protegida";
             }
         } catch (error) {

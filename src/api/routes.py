@@ -12,7 +12,6 @@ CORS(api)
 
 @api.route('/registro', methods=['POST'])
 def registrar_usuario():
-    # Obtener los datos del request body
     email = request.json.get('email')
     password = request.json.get('password')
     
@@ -25,7 +24,7 @@ def registrar_usuario():
     if usuario_ya_existe:
         return 'El usuario ya existe', 400
 
-    nuevo_usuario = User(email=email, password=password, is_active=True)  # Asegurarse de que is_active tenga un valor
+    nuevo_usuario = User(email=email, password=password, is_active=True) 
 
     db.session.add(nuevo_usuario)
     db.session.commit()
@@ -33,7 +32,7 @@ def registrar_usuario():
     return jsonify({
         "id": nuevo_usuario.id,
         "email": nuevo_usuario.email,
-        "is_active": nuevo_usuario.is_active  # Incluye is_active en la respuesta
+        "is_active": nuevo_usuario.is_active 
     }), 201
 
 @api.route("/login", methods=["POST"])
@@ -53,7 +52,6 @@ def login():
 @api.route("/protected", methods=["GET"])
 @jwt_required()
 def protected():
-    # Accede a la identidad del usuario actual con get_jwt_identity
     id_usuario_actual = get_jwt_identity()
     usuario = User.query.get(id_usuario_actual)
     
